@@ -3,7 +3,6 @@ package pp_lab1;
 import java.util.Scanner;
 
 public class lab1_task1 {
-    //public static void
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.print("Input a number: ");
