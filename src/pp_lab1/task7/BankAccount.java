@@ -38,7 +38,7 @@ public class BankAccount {
     }
 
     public void money_operation(BankAccount receiver, double amount){
-        int tax;
+        double tax;
         if(this.bank == receiver.bank){
             if(this.acc_name == receiver.acc_name){
                 tax = 0;
@@ -55,11 +55,16 @@ public class BankAccount {
                 tax = 6;
             }
         }
-        double convertedAmount = amount;
+        System.out.println("Taxes for this money operation is: " + tax + "%");
+        double total_amount = amount + amount * (tax/100);
+        double converted_amount = amount;
+
         if(!(this.currency == receiver.currency)){
-            //double conversionRate = this.bank.getConversionRate(this.currency, receiver.getCurrency());
-            convertedAmount = Convertor.convert_currency(this.currency, receiver.getCurrency(), amount);
+            converted_amount = Convertor.convert_currency(this.currency, receiver.getCurrency(), amount);
         }
+        System.out.println("The total amount(amount + tax) is: " + total_amount);
+        this.minus_money(total_amount);
+        receiver.plus_money(converted_amount);
     }
 
 }
