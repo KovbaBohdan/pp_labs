@@ -1,7 +1,7 @@
 package pp_lab1.task6;
 
 public class Convertor {
-    public static double convert_currency(String f_currency, String s_currency, int money){
+    public static double convert_currency(String f_currency, String s_currency, double money){
         double[] valutes = {41, 1, 0.89, 1.35};
         double from_curr = 0;
         double to_curr = 0;
