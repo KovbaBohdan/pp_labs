@@ -10,9 +10,8 @@ public class lab1_task1 {
         String bin_number = "";
 
         do{
-            bin_number += (dec_number % 2);
+            bin_number = (dec_number % 2) + bin_number;
             dec_number /= 2;
-
         }while(dec_number != 0);
 
         print(bin_number);
@@ -20,15 +19,14 @@ public class lab1_task1 {
     public static void print(String s){
         if(s.length() < 8){
             int count_of_zero = 8 - s.length();
-            System.out.print(s);
             for(int i = 0; i < count_of_zero; i++){
                 System.out.print("0");
             }
+            System.out.print(s);
             System.out.println();
         }
         else{
             System.out.print(s);
         }
-
     }
 }

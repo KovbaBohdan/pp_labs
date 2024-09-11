@@ -12,7 +12,7 @@ public class lab1_task5 {
         print(matrix);
         String substring = "678";
         int count_of_substring = count_substring(matrix, substring);
-        System.out.println(count_of_substring);
+        System.out.println("Count of substring in matrix: " + count_of_substring);
 
     }
 

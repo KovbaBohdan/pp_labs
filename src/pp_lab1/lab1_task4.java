@@ -21,21 +21,21 @@ class UniqueSymbolCount {
 
     @Override
     public String toString() {
-        return "Символ: " + symbol + ", Кількість: " + count;
+        return "Symbol: " + symbol + ", Count: " + count;
     }
 }
 
 public class lab1_task4 {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.println("Введи рядок: ");
+        System.out.println("Enter the string: ");
         String user_string = console.nextLine();
 
         char[] characters = user_string.toCharArray();
-        UniqueSymbolCount[] charCounts = new UniqueSymbolCount[characters.length];
+        UniqueSymbolCount[] char_counts = new UniqueSymbolCount[characters.length];
         boolean[] counted = new boolean[characters.length];
 
-        int uniqueCount = 0;
+        int unique_count = 0;
 
         for (int i = 0; i < characters.length; i++) {
             if (!counted[i]) {
@@ -46,13 +46,12 @@ public class lab1_task4 {
                         counted[j] = true;
                     }
                 }
-                charCounts[uniqueCount++] = new UniqueSymbolCount(characters[i], count);
+                char_counts[unique_count++] = new UniqueSymbolCount(characters[i], count);
             }
         }
 
-        // Виведення результату
-        for (int i = 0; i < uniqueCount; i++) {
-            System.out.println(charCounts[i]);
+        for (int i = 0; i < unique_count; i++) {
+            System.out.println(char_counts[i]);
         }
     }
 }

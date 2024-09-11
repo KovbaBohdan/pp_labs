@@ -66,5 +66,4 @@ public class BankAccount {
         this.minus_money(total_amount);
         receiver.plus_money(converted_amount);
     }
-
 }
