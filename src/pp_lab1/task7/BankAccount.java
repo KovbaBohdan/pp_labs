@@ -5,12 +5,21 @@ public class BankAccount {
     private double balance;
     private String acc_name;
     private String currency;
+    private int acc_number;
 
     public BankAccount(String accountHolder, double balance, String currency, Bank bank) {
         this.acc_name = accountHolder;
         this.balance = balance;
         this.currency = currency;
         this.bank = bank;
+    }
+
+    public int getAcc_number() {
+        return acc_number;
+    }
+
+    public void setAcc_number(int acc_number){
+        this.acc_number = acc_number;
     }
 
     public String getAccountHolder() {
