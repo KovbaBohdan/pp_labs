@@ -15,23 +15,23 @@ public class lab1_task2 {
             System.out.println("You enter invalid expression");
         }
 
-        char symbol_1 = exps.charAt(2);
+        char symbol1 = exps.charAt(2);
 
-        int number_1 = Integer.parseInt(String.valueOf(exps.charAt(0)));
-        int number_2 = Integer.parseInt(String.valueOf(exps.charAt(4)));
+        int number1 = Integer.parseInt(String.valueOf(exps.charAt(0)));
+        int number2 = Integer.parseInt(String.valueOf(exps.charAt(4)));
 
-        switch(symbol_1){
+        switch(symbol1){
             case '+':
-                System.out.println(number_1 + number_2);
+                System.out.println(number1 + number2);
                 break;
             case '-':
-                System.out.println(number_1 - number_2);
+                System.out.println(number1 - number2);
                 break;
             case '*':
-                System.out.println(number_1 * number_2);
+                System.out.println(number1 * number2);
                 break;
             case '/':
-                System.out.println(number_1 / number_2);
+                System.out.println(number1 / number2);
                 break;
         }
     }

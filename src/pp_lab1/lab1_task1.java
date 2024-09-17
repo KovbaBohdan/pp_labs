@@ -6,20 +6,20 @@ public class lab1_task1 {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.print("Input a number: ");
-        int dec_number = console.nextInt();
-        String bin_number = "";
+        int decNumber = console.nextInt();
+        String binNumber = "";
 
         do{
-            bin_number = (dec_number % 2) + bin_number;
-            dec_number /= 2;
-        }while(dec_number != 0);
+            binNumber = (decNumber % 2) + binNumber;
+            decNumber /= 2;
+        }while(decNumber != 0);
 
-        print(bin_number);
+        print(binNumber);
     }
     public static void print(String s){
         if(s.length() < 8){
-            int count_of_zero = 8 - s.length();
-            for(int i = 0; i < count_of_zero; i++){
+            int countOfZero = 8 - s.length();
+            for(int i = 0; i < countOfZero; i++){
                 System.out.print("0");
             }
             System.out.print(s);

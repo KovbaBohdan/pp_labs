@@ -29,13 +29,13 @@ public class lab1_task4 {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Enter the string: ");
-        String user_string = console.nextLine();
+        String userString = console.nextLine();
 
-        char[] characters = user_string.toCharArray();
-        UniqueSymbolCount[] char_counts = new UniqueSymbolCount[characters.length];
+        char[] characters = userString.toCharArray();
+        UniqueSymbolCount[] charCounts = new UniqueSymbolCount[characters.length];
         boolean[] counted = new boolean[characters.length];
 
-        int unique_count = 0;
+        int uniqueCount = 0;
 
         for (int i = 0; i < characters.length; i++) {
             if (!counted[i]) {
@@ -46,12 +46,12 @@ public class lab1_task4 {
                         counted[j] = true;
                     }
                 }
-                char_counts[unique_count++] = new UniqueSymbolCount(characters[i], count);
+                charCounts[uniqueCount++] = new UniqueSymbolCount(characters[i], count);
             }
         }
 
-        for (int i = 0; i < unique_count; i++) {
-            System.out.println(char_counts[i]);
+        for (int i = 0; i < uniqueCount; i++) {
+            System.out.println(charCounts[i]);
         }
     }
 }

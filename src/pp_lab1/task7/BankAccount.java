@@ -7,42 +7,42 @@ import java.util.List;
 public class BankAccount {
     private Bank bank;
     private double balance;
-    private String acc_name;
+    private String accName;
     private String currency;
-    private String acc_number;
+    private String accNumber;
     private static List<String> allAccounts = new ArrayList<String>();
 
-    public BankAccount(String accountHolder, double balance, String currency, Bank bank, String acc_number) {
+    public BankAccount(String accountHolder, double balance, String currency, Bank bank, String accNumber) {
         boolean isAccount = false;
         for(int i = 0; i < allAccounts.size(); i++){
-            if(allAccounts.get(i).equals(acc_number)){
+            if(allAccounts.get(i).equals(accNumber)){
                 isAccount = true;
                 System.out.println("This account is already in the bank");
                 break;
             }
         }
         if(!isAccount) {
-            this.acc_name = accountHolder;
+            this.accName = accountHolder;
             this.balance = balance;
             this.currency = currency;
             this.bank = bank;
-            this.acc_number = acc_number;
+            this.accNumber = accNumber;
 
-            allAccounts.add(acc_number);
+            allAccounts.add(accNumber);
         }
 
     }
 
-    public String getAcc_number() {
-        return acc_number;
+    public String getAccNumber() {
+        return accNumber;
     }
 
-    public void setAcc_number(String acc_number){
-        this.acc_number = acc_number;
+    public void setAccNumber(String acc_number){
+        this.accNumber = acc_number;
     }
 
     public String getAccountHolder() {
-        return acc_name;
+        return accName;
     }
 
     public String getCurrency() {
@@ -57,18 +57,18 @@ public class BankAccount {
         return balance;
     }
 
-    public void plus_money(double amount){
+    public void plusMoney(double amount){
         this.balance += amount;
     }
 
-    public void minus_money(double amount){
+    public void minusMoney(double amount){
         this.balance -= amount;
     }
 
     public void money_operation(BankAccount receiver, double amount){
         double tax;
         if(this.bank == receiver.bank){
-            if(this.acc_name == receiver.acc_name){
+            if(this.accName == receiver.accName){
                 tax = 0;
             }
             else{
@@ -76,7 +76,7 @@ public class BankAccount {
             }
         }
         else{
-            if(this.acc_name == receiver.acc_name){
+            if(this.accName == receiver.accName){
                 tax = 2;
             }
             else{
@@ -84,14 +84,14 @@ public class BankAccount {
             }
         }
         System.out.println("Taxes for this money operation is: " + tax + "%");
-        double total_amount = amount + amount * (tax/100);
-        double converted_amount = amount;
+        double totalAmount = amount + amount * (tax/100);
+        double convertedAmount = amount;
 
         if(!(this.currency == receiver.currency)){
-            converted_amount = Convertor.convert_currency(this.currency, receiver.getCurrency(), amount);
+            convertedAmount = Convertor.convert_currency(this.currency, receiver.getCurrency(), amount);
         }
-        System.out.println("The total amount(amount + tax) is: " + total_amount);
-        this.minus_money(total_amount);
-        receiver.plus_money(converted_amount);
+        System.out.println("The total amount(amount + tax) is: " + totalAmount);
+        this.minusMoney(totalAmount);
+        receiver.plusMoney(convertedAmount);
     }
 }
