@@ -1,24 +1,43 @@
 package pp_lab1.task7;
 import pp_lab1.task6.Convertor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class BankAccount {
     private Bank bank;
     private double balance;
     private String acc_name;
     private String currency;
-    private int acc_number;
+    private String acc_number;
+    private static List<String> allAccounts = new ArrayList<String>();
 
-    public BankAccount(String accountHolder, double balance, String currency, Bank bank) {
-        this.acc_name = accountHolder;
-        this.balance = balance;
-        this.currency = currency;
-        this.bank = bank;
+    public BankAccount(String accountHolder, double balance, String currency, Bank bank, String acc_number) {
+        boolean isAccount = false;
+        for(int i = 0; i < allAccounts.size(); i++){
+            if(allAccounts.get(i).equals(acc_number)){
+                isAccount = true;
+                System.out.println("This account is already in the bank");
+                break;
+            }
+        }
+        if(!isAccount) {
+            this.acc_name = accountHolder;
+            this.balance = balance;
+            this.currency = currency;
+            this.bank = bank;
+            this.acc_number = acc_number;
+
+            allAccounts.add(acc_number);
+        }
+
     }
 
-    public int getAcc_number() {
+    public String getAcc_number() {
         return acc_number;
     }
 
-    public void setAcc_number(int acc_number){
+    public void setAcc_number(String acc_number){
         this.acc_number = acc_number;
     }
 

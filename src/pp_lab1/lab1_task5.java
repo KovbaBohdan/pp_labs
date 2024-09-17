@@ -11,17 +11,17 @@ public class lab1_task5 {
         };
         print(matrix);
         String substring = "678";
-        int count_of_substring = count_substring(matrix, substring);
-        System.out.println("Count of substring in matrix: " + count_of_substring);
+        int countOfSubstring = countSubstring(matrix, substring);
+        System.out.println("Count of substring in matrix: " + countOfSubstring);
 
     }
 
-    public static int count_substring(String [][] matrix, String substring){
+    public static int countSubstring(String [][] matrix, String substring){
         int count = 0;
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[i].length; j++){
-                String current_String = matrix[i][j];
-                int index = current_String.indexOf(substring);
+                String currentString = matrix[i][j];
+                int index = currentString.indexOf(substring);
                 while (index != -1) {
                     count++;
                     break;
