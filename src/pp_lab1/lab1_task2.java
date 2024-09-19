@@ -33,6 +33,7 @@ public class lab1_task2 {
             case '/':
                 System.out.println(number1 / number2);
                 break;
+
         }
     }
 }
