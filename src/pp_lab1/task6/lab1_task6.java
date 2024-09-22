@@ -15,7 +15,7 @@ public class lab1_task6 {
 
         System.out.print("Enter the currency to which should be converted: ");
         String secondCurrency = console.nextLine();
-        double resultOfConvert = Convertor.convert_currency(firstCurrency, secondCurrency, amount);
+        double resultOfConvert = Convertor.convertCurrency(firstCurrency, secondCurrency, amount);
 
         System.out.println("The result of the conversion " + amount + firstCurrency
                 + " into " + secondCurrency + " is: " + resultOfConvert);

@@ -88,7 +88,7 @@ public class BankAccount {
         double convertedAmount = amount;
 
         if(!(this.currency == receiver.currency)){
-            convertedAmount = Convertor.convert_currency(this.currency, receiver.getCurrency(), amount);
+            convertedAmount = Convertor.convertCurrency(this.currency, receiver.getCurrency(), amount);
         }
         System.out.println("The total amount(amount + tax) is: " + totalAmount);
         this.minusMoney(totalAmount);

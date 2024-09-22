@@ -6,7 +6,7 @@ public class lab1_task5 {
     public static void main(String[] args) {
         String [][] matrix = {
                 {"asd", "qwe", "fgh"},
-                {"123", "678", "sgd"},
+                {"123", "678678", "sgd"},
                 {"678910", "qwef", "lk678jh"}
         };
         print(matrix);

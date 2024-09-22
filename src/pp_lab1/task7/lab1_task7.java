@@ -8,6 +8,7 @@ public class lab1_task7 {
 
         BankAccount account_1 = new BankAccount("KovbaBohdan", 1500, "UAN", bank_1, "0001");
         BankAccount account_2 = new BankAccount("KovbaBohdan", 100, "USD", bank_1, "0002");
+        BankAccount account_333 = new BankAccount("KovbaBohdan", 100, "USD", bank_1, "0002");
 
         System.out.println("=======================================");
         System.out.println("Money operation with 1000 UAN from KovbaBohdan to KovbaBohdan in USD:");

@@ -15,6 +15,7 @@ public class lab1_task1 {
         }while(decNumber != 0);
 
         print(binNumber);
+        System.out.print(Integer.toBinaryString(21));
     }
     public static void print(String s){
         if(s.length() < 8){

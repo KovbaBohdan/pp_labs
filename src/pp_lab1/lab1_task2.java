@@ -35,5 +35,6 @@ public class lab1_task2 {
                 break;
 
         }
+
     }
 }
