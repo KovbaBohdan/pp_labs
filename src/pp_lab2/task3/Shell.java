@@ -1,4 +1,4 @@
-package pp_lab2.task1;
+package pp_lab2.task3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +42,11 @@ public class Shell {
     public void placeGoodsOnShell(Goods goods){
         if(size1 < goods.getSizeG1() || size2 < goods.getSizeG2() || size3 < goods.getSizeG3()){
             System.out.println("We can`t place your goods in shell. It is too big");
-        }
-        else{
-            allGoods.add(goods);
-            countOfGoodsInShell++;
-            System.out.println(goods.getNameOfGoods() + " is in shell now");
+
+        } else {
+                allGoods.add(goods);
+                countOfGoodsInShell++;
+                System.out.println(goods.getNameOfGoods() + " is in shell now");
         }
     }
 

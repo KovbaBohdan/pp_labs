@@ -1,4 +1,4 @@
-package pp_lab2.task1;
+package pp_lab2.task3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +22,13 @@ public class Storage {
     }
 
     public void addShellToStorage(Shell shell){
-        if(allShells.contains(shell)){
-            System.out.println("You can`t add this shell to the storage, because it is already in it");
+        for(int i = 0; i < allShells.size(); i++){
+            if(allShells.get(i).getName().equals(shell.getName())){
+                throw new IllegalArgumentException("Shell already exists");
+            }
         }
-        else{
-            allShells.add(shell);
-        }
+        allShells.add(shell);
+
     }
 
     public void printStorage(){

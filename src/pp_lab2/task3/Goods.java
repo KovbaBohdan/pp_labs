@@ -1,4 +1,4 @@
-package pp_lab2.task1;
+package pp_lab2.task3;
 
 public class Goods{
     private String nameOfGoods;
