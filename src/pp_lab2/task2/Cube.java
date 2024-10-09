@@ -1,7 +1,6 @@
 package pp_lab2.task2;
 
 public class Cube extends Square{
-
     public Cube(double s){
         super(s);
     }

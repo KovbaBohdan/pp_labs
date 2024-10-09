@@ -18,5 +18,4 @@ public class Rectangle extends Square{
         System.out.println("Rectangle is not a 3D figure. There is not volume");
         return 0.0;
     }
-
 }

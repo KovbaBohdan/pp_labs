@@ -28,7 +28,6 @@ public class Storage {
             }
         }
         allShells.add(shell);
-
     }
 
     public void printStorage(){
@@ -42,6 +41,4 @@ public class Storage {
         }
         System.out.println("======================================");
     }
-
-
 }

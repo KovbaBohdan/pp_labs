@@ -16,21 +16,24 @@ public class lab2_task3 {
         for(int i = 0; i < numberOfShells; i++){
             System.out.println("Enter name of shell: ");
             String nameOfShell = console.nextLine();
+            try {
+                System.out.println("Enter sizes for shell: ");
+                double sizeOfShell1 = console.nextDouble();
+                double sizeOfShell2 = console.nextDouble();
+                double sizeOfShell3 = console.nextDouble();
+                console.nextLine();
 
-            System.out.println("Enter sizes for shell: ");
-            double sizeOfShell1 = console.nextDouble();
-            double sizeOfShell2 = console.nextDouble();
-            double sizeOfShell3 = console.nextDouble();
-            console.nextLine();
-
-            shells[i] = new Shell(nameOfShell, sizeOfShell1, sizeOfShell2, sizeOfShell3);
-            storage.addShellToStorage(shells[i]);
+                shells[i] = new Shell(nameOfShell, sizeOfShell1, sizeOfShell2, sizeOfShell3);
+                storage.addShellToStorage(shells[i]);
+            } catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
 
             System.out.println("Enter number of goods on this shell: ");
             int numberOfGoods = console.nextInt();
             console.nextLine();
             if(numberOfGoods >= 5){
-                throw new UnsupportedOperationException("There are too many goods on this shell");
+                throw new ArrayStoreException("There are too many goods on this shell");
             }
             Goods[] goods = new Goods[numberOfGoods];
             for(int j = 0; j < numberOfGoods; j++){
@@ -42,7 +45,11 @@ public class lab2_task3 {
                 double sizeOfGoods3 = console.nextDouble();
                 console.nextLine();
                 goods[j] = new Goods(nameOfGoods, sizeOfGoods, sizeOfGoods2, sizeOfGoods3);
-                shells[i].placeGoodsOnShell(goods[j]);
+                try {
+                    shells[i].placeGoodsOnShell(goods[j]);
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
         storage.printStorage();

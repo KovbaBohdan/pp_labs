@@ -28,7 +28,4 @@ public class Goods{
     public double getSizeG3(){
         return this.sizeG3;
     }
-
-
-
 }

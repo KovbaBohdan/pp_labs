@@ -41,8 +41,7 @@ public class Shell {
 
     public void placeGoodsOnShell(Goods goods){
         if(size1 < goods.getSizeG1() || size2 < goods.getSizeG2() || size3 < goods.getSizeG3()){
-            System.out.println("We can`t place your goods in shell. It is too big");
-
+                throw new IllegalArgumentException("The goods are too large for this shell: " + goods.getNameOfGoods());
         } else {
                 allGoods.add(goods);
                 countOfGoodsInShell++;
@@ -58,6 +57,4 @@ public class Shell {
         }
         System.out.println("================================");
     }
-
-
 }

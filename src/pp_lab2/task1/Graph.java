@@ -14,17 +14,17 @@ public class Graph {
     }
 
     public Point addPoint(String name) {
-        Point newVertex = new Point(name, 0);
-        this.points.add(newVertex);
-        return newVertex;
+        Point newPoint = new Point(name, 0);
+        this.points.add(newPoint);
+        return newPoint;
     }
 
-    public void addEdge(Point vertex1, Point vertex2) {
-        if (!vertex1.hasEdgeTo(vertex2)) {
-            vertex1.addEdge(vertex2);
+    public void addEdge(Point point1, Point point2) {
+        if (!point1.havingEdge(point2)) {
+            point1.addEdge(point2);
         }
-        if (!this.isDirected && !vertex2.hasEdgeTo(vertex1)) {
-            vertex2.addEdge(vertex1);
+        if (!this.isDirected && !point2.havingEdge(point1)) {
+            point2.addEdge(point1);
         }
     }
 
@@ -37,18 +37,17 @@ public class Graph {
     }
 
     public Point getPointByValue(String value) {
-        for(Point v: this.points) {
-            if (v.getName().equals(value)) {
-                return v;
+        for(int i = 0; i < points.size(); i++) {
+            if (points.get(i).getName().equals(value)) {
+                return points.get(i);
             }
         }
-
         return null;
     }
 
-    public void print() {
-        for(Point v: this.points) {
-            v.print();
+    public void printGraph() {
+        for(int i = 0; i < points.size(); i++) {
+            points.get(i).printPoint();
         }
     }
 

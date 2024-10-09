@@ -13,8 +13,17 @@ public class Point {
         this.edges = new ArrayList<Edge>();
     }
 
-    public void addEdge(Point endVertex) {
-        this.edges.add(new Edge(this, endVertex));
+    public void addEdge(Point endPoint) {
+        this.edges.add(new Edge(this, endPoint));
+    }
+
+    public boolean havingEdge(Point endPoint) {
+        for (int i = 0; i < edges.size(); i++) {
+            if (edges.get(i).getEnd().equals(endPoint)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getName() {
@@ -29,36 +38,21 @@ public class Point {
         return this.value;
     }
 
-    public void print() {
-        String message = "";
-
+    public void printPoint() {
         if (this.edges.size() == 0) {
-            System.out.println(this.name + " -->");
-            return;
+            System.out.println(this.name + ": There is no connecting points");
         }
-
-        for(int i = 0; i < this.edges.size(); i++) {
-            if (i == 0) {
-                message += this.edges.get(i).getStart().name + " -->  ";
+        else {
+            System.out.print(this.name + ": ");
+            for (int i = 0; i < this.edges.size(); i++) {
+                System.out.print(this.edges.get(i).getEnd().name + " ");
             }
-
-            message += this.edges.get(i).getEnd().name;
-
-
-            if (i != this.edges.size() - 1) {
-                message += ", ";
-            }
+            System.out.println();
         }
-        System.out.println(message);
     }
 
-    public boolean hasEdgeTo(Point endVertex) {
-        for (Edge edge : this.edges) {
-            if (edge.getEnd().equals(endVertex)) {
-                return true;  // Ребро вже існує
-            }
-        }
-        return false;
+    @Override
+    public String toString(){
+        return this.name;
     }
-
 }
