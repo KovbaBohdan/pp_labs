@@ -34,7 +34,7 @@ public class lab2_task1 {
             for(int j = 0; j < numberOfConnections; j++){
                 System.out.println("Enter the names of points for connecting to " + graph1.getPoints().get(i) + ": ");
                 String s1 = console.nextLine();
-                Point temp = graph1.getPointByValue(s1) ;
+                Point temp = graph1.getPointByValue(s1);
                 graph1.addEdge(graph1.getPoints().get(i), temp);
             }
         }
