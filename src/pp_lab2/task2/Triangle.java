@@ -2,7 +2,7 @@ package pp_lab2.task2;
 
 import static java.lang.Math.sqrt;
 
-public class Triangle implements Geom_Vigures{
+public class Triangle implements Figures2D {
     private double side;
 
     public double getSide(){
@@ -16,11 +16,5 @@ public class Triangle implements Geom_Vigures{
     @Override
     public double area(){
         return Math.pow(side, 2) * sqrt(3) / 4;
-    }
-
-    @Override
-    public double volume(){
-        System.out.println("Triangle is not a 3D figure. There is not volume");
-        return 0.0;
     }
 }

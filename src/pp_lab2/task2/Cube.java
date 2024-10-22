@@ -1,6 +1,6 @@
 package pp_lab2.task2;
 
-public class Cube extends Square{
+public class Cube extends Square implements Figures3D {
     public Cube(double s){
         super(s);
     }

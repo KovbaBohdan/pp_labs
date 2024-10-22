@@ -24,7 +24,10 @@ public class lab2_task1 {
         for(int i = 0; i < numberOfPoints; i++){
             System.out.print("Enter the name of point: ");
             String pointName = console.nextLine();
-            graph1.addPoint(pointName);
+            System.out.println("Enter value of point: ");
+            int pointValue = console.nextInt();
+            console.nextLine();
+            graph1.addPoint(pointName, pointValue);
         }
 
         for(int i = 0; i < numberOfPoints; i++){

@@ -1,6 +1,6 @@
 package pp_lab2.task2;
 
-public class Circle implements Geom_Vigures{
+public class Circle implements Figures2D, Constant {
     private double radius;
 
     public Circle(double rad){
@@ -14,11 +14,5 @@ public class Circle implements Geom_Vigures{
     @Override
     public double area(){
         return PI * Math.pow(radius, 2);
-    }
-
-    @Override
-    public double volume(){
-        System.out.println("Circle is not a 3D figure. There is not volume");
-        return 0.0;
     }
 }

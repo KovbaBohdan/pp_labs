@@ -7,6 +7,7 @@ public class Point {
     private int value;
     private ArrayList<Edge> edges;
 
+
     public Point(String name, int value) {
         this.name = name;
         this.value = value;

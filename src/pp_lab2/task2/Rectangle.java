@@ -12,10 +12,4 @@ public class Rectangle extends Square{
     public double area(){
         return side2 * super.getSide();
     }
-
-    @Override
-    public double volume(){
-        System.out.println("Rectangle is not a 3D figure. There is not volume");
-        return 0.0;
-    }
 }

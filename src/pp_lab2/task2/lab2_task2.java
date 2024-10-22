@@ -11,7 +11,6 @@ public class lab2_task2 {
         double side = console.nextDouble();
         Square square = new Square(side);
         System.out.println(square.area());
-        System.out.println(square.volume());
         System.out.println("=================================================");
 
         System.out.println("=================================================");
@@ -25,14 +24,12 @@ public class lab2_task2 {
         System.out.println("RECTANGLE: ");
         Rectangle rectangle = new Rectangle(10, 12);
         System.out.println(rectangle.area());
-        System.out.println(rectangle.volume());
         System.out.println("=================================================");
 
         System.out.println("=================================================");
         System.out.println("TRIANGLE: ");
         Triangle triangle = new Triangle(4);
         System.out.println(triangle.area());
-        System.out.println(triangle.volume());
         System.out.println("=================================================");
 
         System.out.println("=================================================");
@@ -46,7 +43,6 @@ public class lab2_task2 {
         System.out.println("CIRCLE: ");
         Circle circle = new Circle(5);
         System.out.println(circle.area());
-        System.out.println(circle.volume());
         System.out.println("=================================================");
 
 

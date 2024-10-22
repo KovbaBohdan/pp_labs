@@ -2,30 +2,30 @@ package pp_lab2.task3;
 
 public class Goods{
     private String nameOfGoods;
-    private double sizeG1;
-    private double sizeG2;
-    private double sizeG3;
+    private double length;
+    private double width;
+    private double height;
 
     public Goods(String name, double s1, double s2, double s3){
         this.nameOfGoods = name;
-        this.sizeG1 = s1;
-        this.sizeG2 = s2;
-        this.sizeG3 = s3;
+        this.length = s1;
+        this.width = s2;
+        this.height = s3;
     }
 
     public String getNameOfGoods(){
         return this.nameOfGoods;
     }
 
-    public double getSizeG1(){
-        return this.sizeG1;
+    public double getLength(){
+        return this.length;
     }
 
-    public double getSizeG2(){
-        return this.sizeG2;
+    public double getWidth(){
+        return this.width;
     }
 
-    public double getSizeG3(){
-        return this.sizeG3;
+    public double getHeight(){
+        return this.height;
     }
 }

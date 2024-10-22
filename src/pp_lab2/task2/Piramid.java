@@ -2,7 +2,7 @@ package pp_lab2.task2;
 
 import static java.lang.Math.sqrt;
 
-public class Piramid extends Triangle{
+public class Piramid extends Triangle implements Figures3D {
     private double rebro1;
 
     public Piramid(double s1, double r1){
@@ -26,6 +26,4 @@ public class Piramid extends Triangle{
         double h = sqrt(Math.pow(rebro1, 2) - Math.pow(r, 2));
         return super.area() * h / 3;
     }
-
-
 }

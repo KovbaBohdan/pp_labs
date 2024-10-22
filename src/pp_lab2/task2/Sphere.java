@@ -1,6 +1,6 @@
 package pp_lab2.task2;
 
-public class Sphere extends Circle{
+public class Sphere extends Circle implements Figures3D {
     public Sphere(double rad){
         super(rad);
     }

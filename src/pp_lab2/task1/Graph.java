@@ -13,8 +13,8 @@ public class Graph {
         this.numberOfPoints = numberOfPoints;
     }
 
-    public Point addPoint(String name) {
-        Point newPoint = new Point(name, 0);
+    public Point addPoint(String name, int value) {
+        Point newPoint = new Point(name, value);
         this.points.add(newPoint);
         return newPoint;
     }
