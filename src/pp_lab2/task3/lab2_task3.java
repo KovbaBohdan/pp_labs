@@ -36,7 +36,7 @@ public class lab2_task3 {
             if(numberOfGoods >= 5){
                 throw new IllegalArgumentException("There are too many goods on this shell");
             }
-            Goods[] goods = new Goods[numberOfGoods];
+            Good[] goods = new Good[numberOfGoods];
             for(int j = 0; j < numberOfGoods; j++){
                 System.out.println("Enter name of goods on this shell: ");
                 String nameOfGoods = console.nextLine();
@@ -45,7 +45,7 @@ public class lab2_task3 {
                 double sizeOfGoods2 = console.nextDouble();
                 double sizeOfGoods3 = console.nextDouble();
                 console.nextLine();
-                goods[j] = new Goods(nameOfGoods, sizeOfGoods, sizeOfGoods2, sizeOfGoods3);
+                goods[j] = new Good(nameOfGoods, sizeOfGoods, sizeOfGoods2, sizeOfGoods3);
             }
 
             boolean a = shells[i].isVolumeOfShellIsEnoughForAllGoods(goods);

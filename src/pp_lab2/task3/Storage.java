@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Storage {
     private String nameOfStorage;
-    private static List<Shell> allShells = new ArrayList<Shell>();
+    private static List<Shell> allShells = new ArrayList<>();
 
     public Storage(String name){
         this.nameOfStorage = name;

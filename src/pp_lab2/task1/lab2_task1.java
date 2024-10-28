@@ -19,7 +19,7 @@ public class lab2_task1 {
         int numberOfPoints = console.nextInt();
         console.nextLine();
 
-        Graph graph1 = new Graph(isOriented, numberOfPoints);
+        Graph graph1 = new Graph(isOriented);
 
         for(int i = 0; i < numberOfPoints; i++){
             System.out.print("Enter the name of point: ");

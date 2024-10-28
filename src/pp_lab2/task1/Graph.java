@@ -5,12 +5,10 @@ import java.util.ArrayList;
 public class Graph {
     private ArrayList<Point> points;
     private boolean isDirected;
-    private int numberOfPoints;
 
-    public Graph(boolean isDirected, int numberOfPoints) {
+    public Graph(boolean isDirected) {
         this.points = new ArrayList<Point>();
         this.isDirected = isDirected;
-        this.numberOfPoints = numberOfPoints;
     }
 
     public Point addPoint(String name, int value) {

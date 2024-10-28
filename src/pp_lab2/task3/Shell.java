@@ -8,15 +8,13 @@ public class Shell {
     private double size2;
     private double size3;
     private String name;
-    //private int countOfGoodsInShell;
-    private List<Goods> allGoods = new ArrayList<>();
+    private List<Good> allGoods = new ArrayList<>();
 
     public Shell(String name, double s1, double s2, double s3) {
         this.name = name;
         this.size1 = s1;
         this.size2 = s2;
         this.size3 = s3;
-        //this.countOfGoodsInShell = 0;
     }
 
     public double getSize1() {
@@ -35,19 +33,19 @@ public class Shell {
         return name;
     }
 
-    public void placeGoodsOnShell(Goods goods, boolean isShellEnoughBig) {
+    public void placeGoodsOnShell(Good goods, boolean isShellEnoughBig) {
+
         if (size1 < goods.getLength() || size2 < goods.getWidth() || size3 < goods.getHeight()) {
-            throw new IllegalArgumentException("The goods are too large for this shell: " + goods.getNameOfGoods());
+            throw new IllegalArgumentException("The goods are too large for this shell: " + goods.getNameOfGood());
         } else if(isShellEnoughBig) {
             allGoods.add(goods);
-            //countOfGoodsInShell++;
-            System.out.println(goods.getNameOfGoods() + " is in shell now");
+            System.out.println(goods.getNameOfGood() + " is in shell now");
         } else {
-            System.out.println("The shell is too small for this goods: " + goods.getNameOfGoods());
+            System.out.println("The shell is too small for this goods: " + goods.getNameOfGood());
         }
     }
 
-    public boolean isVolumeOfShellIsEnoughForAllGoods(Goods [] goods){
+    public boolean isVolumeOfShellIsEnoughForAllGoods(Good[] goods){
         double shellVolume = size1 * size2 * size3;
         double volumeOfAllGoods = 0;
         for(int i = 0; i < goods.length; i++){
@@ -64,7 +62,7 @@ public class Shell {
         System.out.println("================================");
         System.out.println("Information about goods on shell");
         for (int i = 0; i < allGoods.size(); i++) {
-            System.out.println(allGoods.get(i).getNameOfGoods());
+            System.out.println(allGoods.get(i).getNameOfGood());
         }
         System.out.println("================================");
     }
