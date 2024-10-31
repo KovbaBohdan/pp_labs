@@ -1,7 +1,6 @@
 package pp_lab3;
 
 import java.time.LocalDate;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class lab3_task1 {
