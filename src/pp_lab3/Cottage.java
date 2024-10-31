@@ -1,36 +1,46 @@
 package pp_lab3;
 
+import java.time.LocalDate;
+//import java.time.Month;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 class Cottage {
     private String name;
-    private String category;
+    private Category category;
     private int maxGuests;
+    private double costOfCottage;
     private List<Amenity> cottageAmenities;
     private List<Booking> bookings;
-    private String client;
-    private CottageTown town;
+    private static final Set<Month> LOW_SEASON_MONTHS = Set.of(Month.NOVEMBER, Month.MARCH);
 
-    public Cottage(String name, String category, int maxGuests, String client, CottageTown town) {
+    public enum Category{
+        STANDARD, LUX, LARGE, SMALL
+    }
+
+    public Cottage(String name, Category category, int maxGuests, double costOfCottage) {
         this.name = name;
         this.category = category;
         this.maxGuests = maxGuests;
+        this.costOfCottage = costOfCottage;
         this.cottageAmenities = new ArrayList<>();
         this.bookings = new ArrayList<>();
-        this.client = client;
-        this.town = town;
     }
 
-    public void addCottageAmenity(Amenity amenity) {
-        if(amenity.getNumberOfGuestToAdd() != 0){
+    public void addCottageAmenity(Amenity amenity) throws InvalidAmenityException{
+        if (amenity.getNumberOfGuestToAdd() < 0 || amenity.getCostOfAmenity() < 0) {
+            throw new InvalidAmenityException("Invalid amenity parameters");
+        }
+        if (amenity.getNumberOfGuestToAdd() != 0) {
             maxGuests += amenity.getNumberOfGuestToAdd();
         }
         cottageAmenities.add(amenity);
     }
 
-    public List<Amenity> getAllAmenities() {
-        List<Amenity> allAmenities = new ArrayList<>(town.getTownAmenities());
+    public List<Amenity> getAllAmenities(List<Amenity> townAmenities) {
+        List<Amenity> allAmenities = new ArrayList<>(townAmenities);
         allAmenities.addAll(cottageAmenities);
         return allAmenities;
     }
@@ -43,30 +53,48 @@ class Cottage {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public boolean isAvailable(LocalDate date) {
+        boolean available = bookings.stream()
+                .noneMatch(booking -> booking.getDate().equals(date));
+        return available;
     }
 
-    public int getMaxGuests() {
-        return maxGuests;
+    public void addBooking(Booking booking, LocalDate date, String client) {
+        bookings.add(booking);
     }
 
-    public String getClient() {
-        return client;
+    public void displayBookings() {
+        System.out.println("====================================================");
+        System.out.println("Booking for cottage " + name + ": ");
+        bookings.stream()
+                .forEach(booking -> System.out.println("Date: " + booking.getDate() + ", \nClient: " + booking.getClient()));
     }
 
-    public void setClient(String client) {
-        this.client = client;
-    }
-
-
-
-    public void displayInfo() {
+    public void displayInfo(List<Amenity> townAmenities) {
+        System.out.println("====================================================");
+        System.out.println("Name: " + name);
         System.out.println("Category: " + category);
         System.out.println("Max number of guest: " + maxGuests);
         System.out.println("Amenities: ");
-        for (Amenity amenity : getAllAmenities()) {
-            System.out.println(amenity.getName());
-        }
+        getAllAmenities(townAmenities).stream()
+                .map(Amenity::getName)
+                .forEach(System.out::println);
+    }
+
+    public double calcIncome(){
+        return bookings.stream()
+                .mapToDouble(booking -> {
+                    if (LOW_SEASON_MONTHS.contains(booking.getDate().getMonth())) {
+                        costOfCottage *= 0.8;
+                    }
+                    return costOfCottage;
+                })
+                .sum();
+    }
+
+    public double calcOutcome() {
+        return cottageAmenities.stream()
+                .mapToDouble(Amenity::getCostOfAmenity)
+                .sum();
     }
 }

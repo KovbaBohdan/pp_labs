@@ -5,8 +5,10 @@ import java.time.LocalDate;
 public class Booking {
     private String client;
     private LocalDate date;
+    private String cottageName;
 
-    public Booking(String client, LocalDate date) {
+    public Booking(String cottageName, String client, LocalDate date) {
+        this.cottageName = cottageName;
         this.client = client;
         this.date = date;
     }
@@ -17,5 +19,9 @@ public class Booking {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public String getCottage() {
+        return cottageName;
     }
 }
