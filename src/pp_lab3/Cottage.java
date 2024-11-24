@@ -53,6 +53,12 @@ class Cottage {
     }
 
     public boolean isAvailable(LocalDate date) {
+        List<String> test = new ArrayList<>();
+        test.add("1.0");
+        test.add("2.0");
+        test.add("3");
+        test.add("TEST");
+
         boolean available = bookings.stream()
                 .noneMatch(booking -> booking.getDate().equals(date));
         return available;
