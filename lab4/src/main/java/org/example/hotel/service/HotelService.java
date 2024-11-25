@@ -14,4 +14,10 @@ public interface HotelService {
     HotelDTO updateHotel(HotelDTO hotelDTO);
 
     void deleteById(long id);
+
+    double calculateTotalIncome(long hotelId);
+
+    double calculateTotalExpenses(long hotelId);
+
+    double applyLowSeasonDiscount(double price, int month);
 }

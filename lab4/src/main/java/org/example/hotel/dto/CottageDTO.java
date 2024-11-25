@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CottageDTO {
-    private int id;
+    private long id;
     private String name;
     private double price;
     private Hotel hotel;
@@ -48,7 +48,8 @@ public class CottageDTO {
         cottage.setCategory(cottageDTO.getCategory());
         cottage.setMaxAdultGuests(cottageDTO.getMaxAdultGuests());
         cottage.setMaxChildrenGuests(cottageDTO.getMaxChildrenGuests());
-        List<Amenity> amenities = cottageDTO.getAmenities().stream().map(amenityDTO -> {
+        List<Amenity> amenities = cottageDTO.getAmenities().stream()
+                .map(amenityDTO -> {
             Amenity amenity = new Amenity();
             amenity.setId(amenityDTO.getId());
             return amenity;

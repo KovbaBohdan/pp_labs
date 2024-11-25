@@ -37,4 +37,14 @@ public class HotelResource {
     public void deleteById(@PathVariable long id) {
         hotelService.deleteById(id);
     }
+
+    @GetMapping("/{id}/income")
+    public double getTotalIncome(@PathVariable long id) {
+        return hotelService.calculateTotalIncome(id);
+    }
+
+    @GetMapping("/{id}/expenses")
+    public double getTotalExpenses(@PathVariable long id) {
+        return hotelService.calculateTotalExpenses(id);
+    }
 }

@@ -32,7 +32,8 @@ public class AmenityRepository {
         } else {
             Amenity existingAmenity = getAmenityById(amenity.getId());
             existingAmenity.setName(amenity.getName());
-            existingAmenity.setAdditionalPlaces(amenity.getAdditionalPlaces());
+            existingAmenity.setAdditionalAdultPlaces(amenity.getAdditionalAdultPlaces());
+            existingAmenity.setAdditionalChildrenPlaces(amenity.getAdditionalChildrenPlaces());
             existingAmenity.setCost(amenity.getCost());
             existingAmenity.setTypeOfAmenity(amenity.getTypeOfAmenity());
         }
@@ -43,3 +44,4 @@ public class AmenityRepository {
         dtoList.removeIf(dto -> dto.getId() == id);
     }
 }
+

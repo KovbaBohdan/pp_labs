@@ -37,11 +37,22 @@ public class CottageServiceImpl implements CottageService {
         cottage.setPrice(cottageDTO.getPrice());
         cottage.setHotel(cottageDTO.getHotel());
         cottage.setCategory(cottageDTO.getCategory());
-        cottage.setMaxAdultGuests(cottageDTO.getMaxAdultGuests());
-        cottage.setMaxChildrenGuests(cottageDTO.getMaxChildrenGuests());
+
+        // Визначення максимальних місць з урахуванням додаткових зручностей
+        int totalAdultGuests = cottageDTO.getMaxAdultGuests();
+        int totalChildrenGuests = cottageDTO.getMaxChildrenGuests();
         List<Long> amenityIds = cottageDTO.getAmenities().stream().map(AmenityDTO::getId).collect(Collectors.toList());
         List<Amenity> amenities = amenityRepository.getAmenitiesByIds(amenityIds);
+
+        for (Amenity amenity : amenities) {
+            totalAdultGuests += amenity.getAdditionalAdultPlaces();
+            totalChildrenGuests += amenity.getAdditionalChildrenPlaces();
+        }
+
+        cottage.setMaxAdultGuests(totalAdultGuests);
+        cottage.setMaxChildrenGuests(totalChildrenGuests);
         cottage.setAmenities(amenities);
+
         cottageRepository.save(cottage);
         return CottageDTO.fromCottage(cottage);
     }
@@ -53,11 +64,22 @@ public class CottageServiceImpl implements CottageService {
         cottage.setPrice(cottageDTO.getPrice());
         cottage.setHotel(cottageDTO.getHotel());
         cottage.setCategory(cottageDTO.getCategory());
-        cottage.setMaxAdultGuests(cottageDTO.getMaxAdultGuests());
-        cottage.setMaxChildrenGuests(cottageDTO.getMaxChildrenGuests());
+
+        // Визначення максимальних місць з урахуванням додаткових зручностей
+        int totalAdultGuests = cottageDTO.getMaxAdultGuests();
+        int totalChildrenGuests = cottageDTO.getMaxChildrenGuests();
         List<Long> amenityIds = cottageDTO.getAmenities().stream().map(AmenityDTO::getId).collect(Collectors.toList());
         List<Amenity> amenities = amenityRepository.getAmenitiesByIds(amenityIds);
+
+        for (Amenity amenity : amenities) {
+            totalAdultGuests += amenity.getAdditionalAdultPlaces();
+            totalChildrenGuests += amenity.getAdditionalChildrenPlaces();
+        }
+
+        cottage.setMaxAdultGuests(totalAdultGuests);
+        cottage.setMaxChildrenGuests(totalChildrenGuests);
         cottage.setAmenities(amenities);
+
         cottageRepository.save(cottage);
         return CottageDTO.fromCottage(cottage);
     }
@@ -67,3 +89,6 @@ public class CottageServiceImpl implements CottageService {
         cottageRepository.deleteCottageById(id);
     }
 }
+
+
+

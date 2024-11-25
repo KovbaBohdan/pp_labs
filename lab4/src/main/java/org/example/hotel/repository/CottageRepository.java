@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public class CottageRepository {
     private List<Cottage> cottageList = new ArrayList<>();
-    private static int ID = 1;
+    private static long ID = 1;
 
-    public Cottage getCottageById(int id) {
+    public Cottage getCottageById(long id) {
         return cottageList.stream()
                 .filter(cottage -> cottage.getId() == id)
                 .findAny()
@@ -40,7 +40,7 @@ public class CottageRepository {
         return cottage;
     }
 
-    public void deleteCottageById(int id) {
+    public void deleteCottageById(long id) {
         cottageList.removeIf(cottage -> cottage.getId() == id);
     }
 }

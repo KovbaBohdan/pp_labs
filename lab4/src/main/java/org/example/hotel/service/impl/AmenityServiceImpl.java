@@ -23,16 +23,15 @@ public class AmenityServiceImpl implements AmenityService {
 
     @Override
     public List<AmenityDTO> getAmenities() {
-        return amenityRepository.getAmenity().stream()
-                .map(AmenityDTO::fromAmenity)
-                .collect(Collectors.toList());
+        return amenityRepository.getAmenity().stream().map(AmenityDTO::fromAmenity).collect(Collectors.toList());
     }
 
     @Override
     public AmenityDTO createAmenity(final AmenityDTO amenityDTO) {
         final Amenity amenity = new Amenity();
         amenity.setName(amenityDTO.getName());
-        amenity.setAdditionalPlaces(amenityDTO.getAdditionalPlaces());
+        amenity.setAdditionalAdultPlaces(amenityDTO.getAdditionalAdultPlaces());
+        amenity.setAdditionalChildrenPlaces(amenityDTO.getAdditionalChildrenPlaces());
         amenity.setCost(amenityDTO.getCost());
         amenity.setTypeOfAmenity(amenityDTO.getTypeOfAmenity());
         amenityRepository.save(amenity);
@@ -43,7 +42,8 @@ public class AmenityServiceImpl implements AmenityService {
     public AmenityDTO updateAmenity(AmenityDTO amenityDTO) {
         Amenity amenity = amenityRepository.getAmenityById(amenityDTO.getId());
         amenity.setName(amenityDTO.getName());
-        amenity.setAdditionalPlaces(amenityDTO.getAdditionalPlaces());
+        amenity.setAdditionalAdultPlaces(amenityDTO.getAdditionalAdultPlaces());
+        amenity.setAdditionalChildrenPlaces(amenityDTO.getAdditionalChildrenPlaces());
         amenity.setCost(amenityDTO.getCost());
         amenity.setTypeOfAmenity(amenityDTO.getTypeOfAmenity());
         amenityRepository.save(amenity);

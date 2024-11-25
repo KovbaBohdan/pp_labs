@@ -12,19 +12,19 @@ import org.example.hotel.entity.TypeOfAmenity;
 public class AmenityDTO {
     private long id;
     private String name;
-    private int additionalPlaces;
+    private int additionalAdultPlaces;
+    private int additionalChildrenPlaces;
     private double cost;
     private TypeOfAmenity typeOfAmenity;
 
     public static AmenityDTO fromAmenity(Amenity amenity) {
         final AmenityDTO amenityDTO = new AmenityDTO();
-
         amenityDTO.setId(amenity.getId());
         amenityDTO.setName(amenity.getName());
-        amenityDTO.setAdditionalPlaces(amenity.getAdditionalPlaces());
+        amenityDTO.setAdditionalAdultPlaces(amenity.getAdditionalAdultPlaces());
+        amenityDTO.setAdditionalChildrenPlaces(amenity.getAdditionalChildrenPlaces());
         amenityDTO.setCost(amenity.getCost());
         amenityDTO.setTypeOfAmenity(amenity.getTypeOfAmenity());
-
         return amenityDTO;
     }
 
@@ -32,10 +32,10 @@ public class AmenityDTO {
         final Amenity amenity = new Amenity();
         amenity.setId(amenityDTO.getId());
         amenity.setName(amenityDTO.getName());
-        amenity.setAdditionalPlaces(amenityDTO.getAdditionalPlaces());
+        amenity.setAdditionalAdultPlaces(amenityDTO.getAdditionalAdultPlaces());
+        amenity.setAdditionalChildrenPlaces(amenityDTO.getAdditionalChildrenPlaces());
         amenity.setCost(amenityDTO.getCost());
         amenity.setTypeOfAmenity(amenityDTO.getTypeOfAmenity());
         return amenity;
     }
 }
-
