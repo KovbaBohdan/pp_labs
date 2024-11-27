@@ -13,11 +13,16 @@ public class AmenityRepository {
     private static long ID = 1;
 
     public Amenity getAmenityById(long id) {
-        return dtoList.stream().filter(dto -> dto.getId() == id).findAny().orElseThrow(() -> new RuntimeException("No such amenity"));
+        return dtoList.stream()
+                .filter(dto -> dto.getId() == id)
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("No such amenity"));
     }
 
     public List<Amenity> getAmenitiesByIds(List<Long> ids) {
-        return dtoList.stream().filter(dto -> ids.contains(dto.getId())).collect(Collectors.toList());
+        return dtoList.stream()
+                .filter(dto -> ids.contains(dto.getId()))
+                .collect(Collectors.toList());
     }
 
     public List<Amenity> getAmenity() {

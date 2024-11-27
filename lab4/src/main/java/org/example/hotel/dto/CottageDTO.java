@@ -50,10 +50,10 @@ public class CottageDTO {
         cottage.setMaxChildrenGuests(cottageDTO.getMaxChildrenGuests());
         List<Amenity> amenities = cottageDTO.getAmenities().stream()
                 .map(amenityDTO -> {
-            Amenity amenity = new Amenity();
-            amenity.setId(amenityDTO.getId());
-            return amenity;
-        }).collect(Collectors.toList());
+                    Amenity amenity = new Amenity();
+                    amenity.setId(amenityDTO.getId());
+                    return amenity;
+                }).collect(Collectors.toList());
         cottage.setAmenities(amenities);
         return cottage;
     }

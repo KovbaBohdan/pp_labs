@@ -14,7 +14,7 @@ public class UserDTO {
     private String surname;
     private String email;
 
-    public static UserDTO fromUser (User user) {
+    public static UserDTO fromUser(User user) {
         final UserDTO userDTO = new UserDTO();
 
         userDTO.setId(user.getId());

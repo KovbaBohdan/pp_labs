@@ -33,7 +33,9 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<HotelDTO> getHotels() {
-        return hotelRepository.getHotels().stream().map(HotelDTO::fromHotel).collect(Collectors.toList());
+        return hotelRepository.getHotels().stream()
+                .map(HotelDTO::fromHotel)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -46,7 +48,8 @@ public class HotelServiceImpl implements HotelService {
                     .map(cottageDTO -> {
                         Cottage cottage = cottageRepository.getCottageById(cottageDTO.getId());
                         if (cottage == null) {
-                            throw new RuntimeException("Cottage with ID " + cottageDTO.getId() + " does not exist.");
+                            throw new RuntimeException("Cottage with ID "
+                                    + cottageDTO.getId() + " does not exist.");
                         }
                         return cottage;
                     })
@@ -59,7 +62,8 @@ public class HotelServiceImpl implements HotelService {
                     .map(amenityDTO -> {
                         Amenity amenity = amenityRepository.getAmenityById(amenityDTO.getId());
                         if (amenity == null) {
-                            throw new RuntimeException("Amenity with ID " + amenityDTO.getId() + " does not exist.");
+                            throw new RuntimeException("Amenity with ID " +
+                                    amenityDTO.getId() + " does not exist.");
                         }
                         return amenity;
                     })
@@ -81,7 +85,8 @@ public class HotelServiceImpl implements HotelService {
                     .map(cottageDTO -> {
                         Cottage cottage = cottageRepository.getCottageById(cottageDTO.getId());
                         if (cottage == null) {
-                            throw new RuntimeException("Cottage with ID " + cottageDTO.getId() + " does not exist.");
+                            throw new RuntimeException("Cottage with ID " +
+                                    cottageDTO.getId() + " does not exist.");
                         }
                         return cottage;
                     })
@@ -94,7 +99,8 @@ public class HotelServiceImpl implements HotelService {
                     .map(amenityDTO -> {
                         Amenity amenity = amenityRepository.getAmenityById(amenityDTO.getId());
                         if (amenity == null) {
-                            throw new RuntimeException("Amenity with ID " + amenityDTO.getId() + " does not exist.");
+                            throw new RuntimeException("Amenity with ID " +
+                                    amenityDTO.getId() + " does not exist.");
                         }
                         return amenity;
                     })
@@ -110,19 +116,21 @@ public class HotelServiceImpl implements HotelService {
     public double calculateTotalIncome(long hotelId) {
         Hotel hotel = hotelRepository.getHotelById(hotelId);
         List<Booking> bookings = bookingRepository.getBookingsByHotelId(hotelId);
-        return bookings.stream().mapToDouble(booking -> {
-            Cottage cottage = booking.getCottage();
-            LocalDate startDate = booking.getStartDate();
-            LocalDate endDate = booking.getEndDate();
-            double totalIncome = 0;
-            while (!startDate.isAfter(endDate)) {
-                double dailyPrice = applyLowSeasonDiscount(cottage.getPrice(), startDate.getMonthValue());
-                totalIncome += dailyPrice;
-                startDate = startDate.plusDays(1);
-            }
-            totalIncome += cottage.getAmenities().stream().mapToDouble(Amenity::getCost).sum();
-            return totalIncome;
-        }).sum();
+        return bookings.stream()
+                .mapToDouble(booking -> {
+                    Cottage cottage = booking.getCottage();
+                    LocalDate startDate = booking.getStartDate();
+                    LocalDate endDate = booking.getEndDate();
+                    double totalIncome = 0;
+                    while (!startDate.isAfter(endDate)) {
+                        double dailyPrice = applyLowSeasonDiscount(cottage.getPrice(),
+                                startDate.getMonthValue());
+                        totalIncome += dailyPrice;
+                        startDate = startDate.plusDays(1);
+                    }
+                    totalIncome += cottage.getAmenities().stream().mapToDouble(Amenity::getCost).sum();
+                    return totalIncome;
+                }).sum();
     }
 
     @Override

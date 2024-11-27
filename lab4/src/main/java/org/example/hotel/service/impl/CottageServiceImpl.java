@@ -27,7 +27,9 @@ public class CottageServiceImpl implements CottageService {
 
     @Override
     public List<CottageDTO> getCottages() {
-        return cottageRepository.getCottages().stream().map(CottageDTO::fromCottage).collect(Collectors.toList());
+        return cottageRepository.getCottages().stream()
+                .map(CottageDTO::fromCottage)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -38,10 +40,11 @@ public class CottageServiceImpl implements CottageService {
         cottage.setHotel(cottageDTO.getHotel());
         cottage.setCategory(cottageDTO.getCategory());
 
-        // Визначення максимальних місць з урахуванням додаткових зручностей
         int totalAdultGuests = cottageDTO.getMaxAdultGuests();
         int totalChildrenGuests = cottageDTO.getMaxChildrenGuests();
-        List<Long> amenityIds = cottageDTO.getAmenities().stream().map(AmenityDTO::getId).collect(Collectors.toList());
+        List<Long> amenityIds = cottageDTO.getAmenities().stream()
+                .map(AmenityDTO::getId)
+                .collect(Collectors.toList());
         List<Amenity> amenities = amenityRepository.getAmenitiesByIds(amenityIds);
 
         for (Amenity amenity : amenities) {
@@ -65,10 +68,11 @@ public class CottageServiceImpl implements CottageService {
         cottage.setHotel(cottageDTO.getHotel());
         cottage.setCategory(cottageDTO.getCategory());
 
-        // Визначення максимальних місць з урахуванням додаткових зручностей
         int totalAdultGuests = cottageDTO.getMaxAdultGuests();
         int totalChildrenGuests = cottageDTO.getMaxChildrenGuests();
-        List<Long> amenityIds = cottageDTO.getAmenities().stream().map(AmenityDTO::getId).collect(Collectors.toList());
+        List<Long> amenityIds = cottageDTO.getAmenities().stream()
+                .map(AmenityDTO::getId)
+                .collect(Collectors.toList());
         List<Amenity> amenities = amenityRepository.getAmenitiesByIds(amenityIds);
 
         for (Amenity amenity : amenities) {

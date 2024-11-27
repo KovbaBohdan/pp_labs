@@ -23,7 +23,9 @@ public class AmenityServiceImpl implements AmenityService {
 
     @Override
     public List<AmenityDTO> getAmenities() {
-        return amenityRepository.getAmenity().stream().map(AmenityDTO::fromAmenity).collect(Collectors.toList());
+        return amenityRepository.getAmenity().stream()
+                .map(AmenityDTO::fromAmenity)
+                .collect(Collectors.toList());
     }
 
     @Override

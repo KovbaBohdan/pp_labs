@@ -50,32 +50,6 @@ public class UserServiceImpl implements UserService {
         return UserDTO.fromUser(user);
     }
 
-//    public UserDTO createUser(final UserDTO UserDTO) {
-//        final User user = new User();
-//
-//        user.setName(UserDTO.getName());
-//        user.setSurname(UserDTO.getSurname());
-//        user.setEmail(UserDTO.getEmail());
-//
-//        userRepository.save(user);
-//
-//        return UserDTO.fromUser(user);
-//    }
-//
-//    @Override
-//
-//    public UserDTO updateUser(UserDTO UserDTO) {
-//        User user = userRepository.getUserById(UserDTO.getId());
-//
-//        user.setName(UserDTO.getName());
-//        user.setSurname(UserDTO.getSurname());
-//        user.setEmail(UserDTO.getEmail());
-//
-//        userRepository.save(user);
-//
-//        return UserDTO.fromUser(user);
-//    }
-
     @Override
 
     public void deleteById(long id) {

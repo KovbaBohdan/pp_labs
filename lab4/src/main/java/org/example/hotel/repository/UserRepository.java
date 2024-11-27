@@ -22,13 +22,6 @@ public class UserRepository {
         return dtoList;
     }
 
-//    public User save(User User) {
-//        User.setId(ID);
-//        dtoList.add(User);
-//        ++ID;
-//        return User;
-//    }
-
     public User save(User user) {
         if (user.getId() == 0) {
             user.setId(ID);
@@ -41,17 +34,6 @@ public class UserRepository {
             existingUser.setEmail(user.getEmail());
             existingUser.setPhone(user.getPhone());
         }
-        return user;
-    }
-
-    public User updateUser(User User) {
-        User user = dtoList.stream()
-                .filter(dto -> dto.getId() == User.getId())
-                .findAny()
-                .orElseThrow(() -> new RuntimeException("No such user"));
-
-        user.setName(User.getName());
-        user.setSurname(User.getSurname());
         return user;
     }
 
